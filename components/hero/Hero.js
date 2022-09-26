@@ -3,15 +3,15 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <section id="hero">
-      <div className="relative h-screen flex flex-col items-center justify-center gap-24">
+      <div className="relative h-screen flex flex-col items-center justify-center gap-24 md:gap-28">
         {/* nama nisa gema dan ornamen */}
         <div className="relative">
-          <h1 className="font-yaseva flex flex-col items-center leading-7 text-4xl">
+          <h1 className="font-yaseva flex flex-col items-center leading-7 text-3xl md:text-5xl">
             <span>Annisa</span>
             <span>&</span>
             <span>Gema</span>
           </h1>
-          <div className="absolute top-0 -translate-x-2 translate-y-3 scale-[300%]">
+          <div className="absolute top-0 -translate-x-2 md:-translate-x-4 md:translate-y-8 translate-y-4 scale-[280%] md:scale-[300%]">
             <Image
               src={"/images/hero/flowers.png"}
               alt="flowers ornaments"
@@ -23,7 +23,7 @@ const Hero = () => {
 
         {/* kalimat mengundang.. */}
         <div className="w-[75%]">
-          <h2 className="font-sacramento text-3xl text-center">
+          <h2 className="font-sacramento text-2xl md:text-4xl text-center">
             mengundang Faris & pasangan ke pernikahan kami
           </h2>
         </div>
