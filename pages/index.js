@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Agenda from "../components/agendas/Agendas";
 import Hero from "../components/hero/Hero";
+import Identity from "../components/identity/Identity";
 
 export default function Home() {
   return (
@@ -10,8 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="custom-container">
-        <Hero />
+      <main className="">
+        <div className="custom-container">
+          <Hero />
+          <Identity />
+        </div>
+        <Agenda />
       </main>
     </>
   );
