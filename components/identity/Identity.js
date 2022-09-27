@@ -37,6 +37,7 @@ const Identity = () => {
             width="500px"
             height="933px"
             layout="responsive"
+            priority={true}
           />
         </div>
         <div className="flex flex-col items-center justify-center">
