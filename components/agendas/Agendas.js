@@ -1,4 +1,3 @@
-import Image from "next/image";
 import AgendaDetails from "./AgendaDetails";
 import AgendaQuotes from "./AgendaQuotes";
 import Countdown from "./Countdown";

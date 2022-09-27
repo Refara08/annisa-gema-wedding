@@ -7,8 +7,8 @@ const AgendaDetails = () => {
       <div className="arab-quote">
         <h4 className="arab-text">بسم الله الرحمن الرحيم</h4>
         <p className="arab-translate">
-          Dengan menyebut nama Allah Subhanahu Wa Ta'ala yang Maha Pengasih dan
-          Maha Penyayang. Berikut ini adalah rangkaian acara pernikahan kami
+          Dengan menyebut nama Allah Subhanahu Wa Ta&apos;ala yang Maha Pengasih
+          dan Maha Penyayang. Berikut ini adalah rangkaian acara pernikahan kami
         </p>
       </div>
 

@@ -6,8 +6,9 @@ const Identity = () => {
       <div className="arab-quote">
         <h2 className="arab-text">السلام عليكم ورحمة الله وبركاته</h2>
         <p className="arab-translate">
-          Dengan menyebut nama Allah Subhanahu Wa Ta'ala yang Maha Pengasih dan
-          Maha Penyayang. Kami mengundang Anda untuk menghadiri pernikahan kami
+          Dengan menyebut nama Allah Subhanahu Wa Ta&apos;ala yang Maha Pengasih
+          dan Maha Penyayang. Kami mengundang Anda untuk menghadiri pernikahan
+          kami
         </p>
       </div>
 
