@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const AgendaQuotes = () => {
   return (
-    <div className="relative h-screen w-full grid place-items-center">
+    <div className="relative h-screen lg:h-[70vh] w-full grid place-items-center py-12">
       <div className="arab-quote">
         <h2 className="arab-text">
           وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
@@ -19,14 +19,16 @@ const AgendaQuotes = () => {
         </p>
       </div>
 
-      <div className="absolute top-0 w-full -z-10">
-        <Image
-          src="/images/agenda/bg-quotes.png"
-          alt="mountain view background"
-          height="261px"
-          width="400px"
-          layout="responsive"
-        />
+      <div className="absolute top-0 lg:bottom-0 w-full -z-10 lg:flex lg:justify-end lg:items-end">
+        <div className="w-full lg:w-[60%]">
+          <Image
+            src="/images/agenda/bg-quotes.png"
+            alt="mountain view background"
+            height="261px"
+            width="400px"
+            layout="responsive"
+          />
+        </div>
       </div>
     </div>
   );

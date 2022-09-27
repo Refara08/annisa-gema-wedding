@@ -1,9 +1,7 @@
 const Countdown = () => {
   return (
     <div className="text-white flex flex-col justify-center items-center font-dm-serif-display max-w-md mx-auto">
-      <h3 className="text-xl sm:text-2xl xl:text-2xl mb-6 tracking-wider">
-        Menuju hari pernikahan
-      </h3>
+      <h3 className="heading-1 mb-6">Menuju hari pernikahan</h3>
       <div className="flex justify-evenly items-start w-full">
         <div className={`time-item days`}>
           <span className={"num-time-item"}>{24}</span>

@@ -3,7 +3,7 @@ import Image from "next/image";
 const AgendaDetails = () => {
   return (
     <div className="flex flex-col items-center text-center gap-12 py-12">
-      <h2 className="text-2xl">Agenda</h2>
+      <h2 className="heading-1">Agenda</h2>
       <div className="arab-quote">
         <h4 className="arab-text">بسم الله الرحمن الرحيم</h4>
         <p className="arab-translate">
@@ -12,10 +12,11 @@ const AgendaDetails = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center gap-6">
-        <h3 className="text-xl">Akad & Resepsi</h3>
+      <h3 className="heading-2 lg:block hidden">Akad & Resepsi</h3>
+      <div className="flex flex-col lg:grid lg:grid-cols-2 lg:items-start gap-6">
+        <h3 className="heading-2 block lg:hidden">Akad & Resepsi</h3>
 
-        <div>
+        <div className="flex flex-col gap-1 lg:w-[300px] lg:text-right lg:items-start">
           <div>
             <Image
               src="/images/agenda/clock.png"
@@ -24,14 +25,14 @@ const AgendaDetails = () => {
               height="30px"
             />
           </div>
-          <h4 className="text-lg">Sabtu, 15 Oktober 2022</h4>
+          <h4 className="heading-3">Sabtu, 15 Oktober 2022</h4>
           <p className="font-fira text-sm font-light">
             {" "}
             Pukul 09.00 - 14.00 WIB
           </p>
         </div>
 
-        <div>
+        <div className="flex flex-col gap-1 lg:w-[300px] lg:text-left lg:items-start">
           <div>
             <Image
               src="/images/agenda/location.png"
@@ -40,15 +41,16 @@ const AgendaDetails = () => {
               height="30px"
             />
           </div>
-          <h4 className="text-lg">Parna Restaurant</h4>
+          <h4 className="heading-3">Parna Restaurant</h4>
           <p className="font-fira text-sm font-light">
             Jl. Al Kausar, Cipocok Jaya, Kec. Cipocok Jaya, Kota Serang, Banten
             42121
           </p>
-        </div>
-
-        <div className="text-sm font-fira text-dark-green font-semibold bg-white py-2 px-5 rounded-xl mt-12">
-          <button>lihat google map</button>
+          <div className=" w-fit mx-auto lg:mx-0">
+            <button className="button text-dark-green bg-white ">
+              lihat google map
+            </button>
+          </div>
         </div>
       </div>
     </div>

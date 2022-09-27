@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Identity = () => {
   return (
-    <section id="identity" className="py-12 md:py-32">
+    <section id="identity" className="py-12 md:pt-32">
       <div className="arab-quote">
         <h2 className="arab-text">السلام عليكم ورحمة الله وبركاته</h2>
         <p className="arab-translate">

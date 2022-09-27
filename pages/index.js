@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Agenda from "../components/agendas/Agendas";
+import Gift from "../components/gift/Gift";
 import Hero from "../components/hero/Hero";
 import Identity from "../components/identity/Identity";
+import Ucapan from "../components/congratulate/Ucapan";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
           <Identity />
         </div>
         <Agenda />
+        <Gift />
+        <Ucapan />
       </main>
     </>
   );
