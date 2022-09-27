@@ -15,10 +15,8 @@ export default function Home() {
       </Head>
 
       <main className="">
-        <div className="custom-container">
-          <Hero />
-          <Identity />
-        </div>
+        <Hero />
+        <Identity />
         <Agenda />
         <Gift />
         <Ucapan />
