@@ -23,6 +23,7 @@ const Hero = () => {
                 alt="flower ornament left"
                 width={"500px"}
                 height="382px"
+                priority={true}
               />
             </div>
 
@@ -32,6 +33,7 @@ const Hero = () => {
                 alt="flower ornament right"
                 width={"500px"}
                 height="595px"
+                priority={true}
               />
             </div>
           </div>
