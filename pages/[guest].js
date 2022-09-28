@@ -4,7 +4,7 @@ import axiosBase from "../utils/axiosBase";
 
 const GuestPage = ({ listUcapan }) => {
   const router = useRouter();
-  const guest = router.query.guest;
+  const guest = router.query.guest.replace("to=", "");
 
   return <Home guestName={guest} listUcapan={listUcapan} />;
 };
