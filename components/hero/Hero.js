@@ -1,6 +1,24 @@
 import Image from "next/image";
 
-const Hero = () => {
+const capitalizeFirstWord = (str) => {
+  const strTransformed = str.charAt(0).toUpperCase() + str.slice(1);
+
+  return strTransformed;
+};
+
+const Hero = ({ guestName }) => {
+  let guest;
+
+  if (!!guestName && guestName.includes("&")) {
+    const strArr = guestName.split("&");
+    guest =
+      capitalizeFirstWord(strArr[0]) + " & " + capitalizeFirstWord(strArr[1]);
+  } else if (!!guestName && !guestName.includes("&")) {
+    guest = capitalizeFirstWord(guestName) + " & pasangan";
+  } else if (!guest) {
+    guest = "Anda";
+  }
+
   return (
     <section id="hero" className="relative">
       <div className="custom-container">
@@ -43,7 +61,7 @@ const Hero = () => {
           {/* kalimat mengundang.. */}
           <div className="w-[75%] flex flex-col items-center gap-12">
             <h2 className="font-sacramento text-2xl md:text-4xl text-center">
-              mengundang Faris & pasangan ke pernikahan kami
+              {`mengundang ${guest} ke pernikahan kami`}
             </h2>
             <h2 className="font-prata md:text-lg">Sabtu, 15 Oktober 2022</h2>
           </div>

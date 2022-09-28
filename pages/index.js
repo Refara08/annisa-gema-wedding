@@ -6,6 +6,7 @@ import Identity from "../components/identity/Identity";
 import Ucapan from "../components/congratulate/Ucapan";
 import axiosBase from "../utils/axiosBase";
 import { useState } from "react";
+import Footer from "../components/footer/Footer";
 
 const sortByLatest = (arr) => {
   const compare = (a, b) => {
@@ -26,7 +27,7 @@ const sortByLatest = (arr) => {
   return sortedArr;
 };
 
-export default function Home({ listUcapan }) {
+export default function Home({ listUcapan, guestName }) {
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
 
@@ -50,7 +51,7 @@ export default function Home({ listUcapan }) {
       </Head>
 
       <main className="">
-        <Hero />
+        <Hero guestName={guestName} />
         <Identity />
         <Agenda />
         <Gift />
@@ -59,6 +60,7 @@ export default function Home({ listUcapan }) {
           updateList={updateList}
           loadingList={loadingList}
         />
+        <Footer />
       </main>
     </>
   );
