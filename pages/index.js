@@ -4,8 +4,43 @@ import Gift from "../components/gift/Gift";
 import Hero from "../components/hero/Hero";
 import Identity from "../components/identity/Identity";
 import Ucapan from "../components/congratulate/Ucapan";
+import axiosBase from "../utils/axiosBase";
+import { useState } from "react";
 
-export default function Home() {
+const sortByLatest = (arr) => {
+  const compare = (a, b) => {
+    const timeA = new Date(a.createdAt).getTime();
+    const timeB = new Date(b.createdAt).getTime();
+
+    if (timeA < timeB) {
+      return 1;
+    }
+    if (timeA > timeB) {
+      return -1;
+    }
+    return 0;
+  };
+
+  const sortedArr = arr.sort(compare);
+
+  return sortedArr;
+};
+
+export default function Home({ listUcapan }) {
+  const [list, setList] = useState(sortByLatest(listUcapan));
+  const [loadingList, setLoadingList] = useState(false);
+
+  const updateList = async () => {
+    setLoadingList(true);
+    const response = await axiosBase.get("/api/ucapan");
+    setList(sortByLatest(response.data));
+    setLoadingList(false);
+  };
+
+  // const updateLoadingListHandler = (boolean) => {
+  //   setLoadingList(boolean);
+  // };
+
   return (
     <>
       <Head>
@@ -19,8 +54,22 @@ export default function Home() {
         <Identity />
         <Agenda />
         <Gift />
-        <Ucapan />
+        <Ucapan
+          listUcapan={list}
+          updateList={updateList}
+          loadingList={loadingList}
+        />
       </main>
     </>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  const response = await axiosBase.get("/api/ucapan");
+
+  return {
+    props: {
+      listUcapan: response.data,
+    },
+  };
+};
