@@ -24,10 +24,11 @@ const Identity = () => {
             />
             <div className="text-center hidden md:block xl:w-[350px]">
               <h2 className="font-dm-serif text-xl">
-                Gema Refantero, S.Si., M.T.
+                Annisa Dwiseptiana Raskania, S.Pd.
               </h2>
               <p className="font-fira text-sm">
-                Putra kedua dari pasangan Bpk. H. Hafidin dan Ibu Hj. Fadlunisah
+                Putri kedua dari pasangan Alm. Bpk. Rahmat Santoso dan Ibu
+                Kurniasih
               </p>
             </div>
           </div>
@@ -50,11 +51,10 @@ const Identity = () => {
             />
             <div className="text-center hidden md:block xl:w-[350px]">
               <h2 className="font-dm-serif text-xl">
-                Annisa Dwiseptiana Raskania, S.Pd.
+                Gema Refantero, S.Si., M.T.
               </h2>
               <p className="font-fira text-sm">
-                Putri kedua dari pasangan Alm. Bpk. Rahmat Santoso dan Ibu
-                Kurniasih
+                Putra kedua dari pasangan Bpk. H. Hafidin dan Ibu Hj. Fadlunisah
               </p>
             </div>
           </div>

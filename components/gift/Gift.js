@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Rekening from "./Rekening";
 
 const Gift = () => {
   return (
@@ -26,45 +27,20 @@ const Gift = () => {
         </div>
 
         <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-24">
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-[50%] md:w-[250px]">
-              <Image
-                src="/images/gift/bca.png"
-                alt="bca icon"
-                width="310px"
-                height="100px"
-                layout="responsive"
-              />
-            </div>
-            <div className="text-center">
-              <h4 className="font-fira text-base lg:text-lg">
-                No rekening: 2330146772
-              </h4>
-              <h4 className="font-fira text-base lg:text-lg">
-                A/n: Annisa Dwiseptiana Raskania
-              </h4>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-[50%] md:w-[250px]">
-              <Image
-                src="/images/gift/bni.png"
-                alt="bca icon"
-                width="316px"
-                height="90px"
-                layout="responsive"
-              />
-            </div>
-            <div className="text-center">
-              <h4 className="font-fira text-base lg:text-lg">
-                No rekening: 986244128
-              </h4>
-              <h4 className="font-fira text-base lg:text-lg">
-                A/n: Annisa Dwiseptiana Raskania
-              </h4>
-            </div>
-          </div>
+          <Rekening
+            noRek="2330146772"
+            behalfOf="Annisa Dwiseptiana Raskania"
+            bank="bca"
+            width="310px"
+            height="100px"
+          />
+          <Rekening
+            noRek="986244128"
+            behalfOf="Annisa Dwiseptiana Raskania"
+            bank="bni"
+            width="316px"
+            height="90px"
+          />
         </div>
       </div>
     </section>

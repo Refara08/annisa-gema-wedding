@@ -32,7 +32,7 @@ const AgendaDetails = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-1 lg:w-[300px] lg:text-left lg:items-start">
+        <div className="flex flex-col gap-1 w-[80%] mx-auto lg:mx-0 lg:w-[300px] lg:text-left lg:items-start">
           <div>
             <Image
               src="/images/agenda/location.png"
@@ -46,10 +46,15 @@ const AgendaDetails = () => {
             Jl. Al Kausar, Cipocok Jaya, Kec. Cipocok Jaya, Kota Serang, Banten
             42121
           </p>
-          <div className=" w-fit mx-auto lg:mx-0">
-            <button className="button text-dark-green bg-white ">
+          <div className=" w-fit mx-auto lg:mx-0 mt-4">
+            <a
+              href="https://www.google.com/maps/place/PARNA/@-6.1329864,106.166618,15z/data=!4m6!3m5!1s0x2e41f55b9fbed5a3:0x2f224fc8066351bf!8m2!3d-6.1329864!4d106.166618!16s%2Fg%2F11ppqt0lpm"
+              target="_blank"
+              rel="noreferrer"
+              className="button text-dark-green bg-white "
+            >
               lihat google map
-            </button>
+            </a>
           </div>
         </div>
       </div>
