@@ -48,7 +48,7 @@ const AgendaDetails = () => {
           </p>
           <div className=" w-fit mx-auto lg:mx-0 mt-4">
             <a
-              href="https://www.google.com/maps/place/PARNA/@-6.1329864,106.166618,15z/data=!4m6!3m5!1s0x2e41f55b9fbed5a3:0x2f224fc8066351bf!8m2!3d-6.1329864!4d106.166618!16s%2Fg%2F11ppqt0lpm"
+              href="https://maps.app.goo.gl/ja3mt42p79RoSPBQ8"
               target="_blank"
               rel="noreferrer"
               className="button text-dark-green bg-white "
