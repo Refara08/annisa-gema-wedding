@@ -19,20 +19,19 @@ const Hero = ({ guestName, firstLoad }) => {
       .timeline()
       .fromTo(
         q(".bride"),
-        { yPercent: 50, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 1, stagger: 0.5 }
+        { scaleY: 0, transformOrigin: "bottom", opacity: 0 },
+        { scaleY: 1, opacity: 1, duration: 0.6, stagger: 0.3 }
       )
       .fromTo(
         q(".and"),
-        { yPercent: 100, opacity: 0 },
-        { yPercent: 0, opacity: 1 },
+        { scaleY: 0, transformOrigin: "bottom", opacity: 0 },
+        { scaleY: 1, opacity: 1, duration: 0.6 },
         "<1"
       )
       .fromTo(
         q(".left-wing"),
         { rotate: 30, transformOrigin: "bottom right", opacity: 0 },
-        { rotate: 0, opacity: 1, duration: 1 },
-        "<"
+        { rotate: 0, opacity: 1, duration: 1 }
       )
       .fromTo(
         q(".right-wing"),
@@ -43,7 +42,7 @@ const Hero = ({ guestName, firstLoad }) => {
       .fromTo(
         q(".content"),
         { yPercent: 50, opacity: 0 },
-        { yPercent: 0, opacity: 1, stagger: 0.5, duration: 1 },
+        { yPercent: 0, opacity: 1, stagger: 0.6, duration: 1 },
         "<0.3"
       );
   }, [firstLoad]);
@@ -72,7 +71,7 @@ const Hero = ({ guestName, firstLoad }) => {
                 <span className="bride">Gema</span>
               </h1>
               <h1>
-                <span className="and">&</span>
+                <span className="and">&#38;</span>
               </h1>
             </div>
 
