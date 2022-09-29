@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import Image from "next/image";
 
 const capitalizeFirstWord = (str) => {
@@ -6,9 +8,48 @@ const capitalizeFirstWord = (str) => {
   return strTransformed;
 };
 
-const Hero = ({ guestName }) => {
-  let guest;
+const Hero = ({ guestName, firstLoad }) => {
+  //animation
+  const heroRef = useRef();
+  const q = gsap.utils.selector(heroRef);
+  const tl = useRef();
 
+  useEffect(() => {
+    tl.current = gsap
+      .timeline()
+      .fromTo(
+        q(".bride"),
+        { yPercent: 50, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 1, stagger: 0.5 }
+      )
+      .fromTo(
+        q(".and"),
+        { yPercent: 100, opacity: 0 },
+        { yPercent: 0, opacity: 1 },
+        "<1"
+      )
+      .fromTo(
+        q(".left-wing"),
+        { rotate: 30, transformOrigin: "bottom right", opacity: 0 },
+        { rotate: 0, opacity: 1, duration: 1 },
+        "<"
+      )
+      .fromTo(
+        q(".right-wing"),
+        { rotate: -30, transformOrigin: "bottom left", opacity: 0 },
+        { rotate: 0, opacity: 1, duration: 1 },
+        "<"
+      )
+      .fromTo(
+        q(".content"),
+        { yPercent: 50, opacity: 0 },
+        { yPercent: 0, opacity: 1, stagger: 0.5, duration: 1 },
+        "<0.3"
+      );
+  }, [firstLoad]);
+
+  //guess name configuration
+  let guest;
   if (!!guestName && guestName.includes("&")) {
     const strArr = guestName.split("&");
     guest =
@@ -20,23 +61,23 @@ const Hero = ({ guestName }) => {
   }
 
   return (
-    <section id="hero" className="relative">
+    <section ref={heroRef} id="hero" className="relative">
       <div className="custom-container">
         <div className="h-screen flex flex-col items-center justify-center gap-36 md:gap-28">
           {/* nama nisa gema dan ornamen */}
           <div className="relative ">
             <div className="font-yaseva flex items-center gap-2 leading-8 md:leading-10 text-4xl md:text-5xl">
               <h1 className="flex flex-col items-end">
-                <span>Annisa</span>
-                <span>Gema</span>
+                <span className="bride">Annisa</span>
+                <span className="bride">Gema</span>
               </h1>
               <h1>
-                <span>&</span>
+                <span className="and">&</span>
               </h1>
             </div>
 
             {/* origin-bottom-right rotate-6 hover:rotate-0 opacity-0 hover:opacity-100 transition duration-300 */}
-            <div className="  absolute bottom-0 left-0 -translate-x-[80px] md:-translate-x-[105px] translate-y-[75px] md:translate-y-[95px]">
+            <div className="left-wing  absolute bottom-0 left-0 -translate-x-[80px] md:-translate-x-[105px] translate-y-[75px] md:translate-y-[95px]">
               <Image
                 src="/images/hero/flower-left-wing.png"
                 alt="flower ornament left"
@@ -47,7 +88,7 @@ const Hero = ({ guestName }) => {
             </div>
 
             {/* origin-bottom-left -rotate-6 hover:rotate-0 opacity-0 hover:opacity-100 transition duration-300 */}
-            <div className=" absolute bottom-0 right-0 translate-x-[90px] md:translate-x-[120px] translate-y-[100px] md:translate-y-[130px]">
+            <div className="right-wing absolute bottom-0 right-0 translate-x-[90px] md:translate-x-[120px] translate-y-[100px] md:translate-y-[130px]">
               <Image
                 src="/images/hero/flower-right-wing.png"
                 alt="flower ornament right"
@@ -60,10 +101,12 @@ const Hero = ({ guestName }) => {
 
           {/* kalimat mengundang.. */}
           <div className="w-[75%] flex flex-col items-center gap-12">
-            <h2 className="font-sacramento text-2xl md:text-4xl text-center">
+            <h2 className="content font-sacramento text-2xl md:text-4xl text-center">
               {`mengundang ${guest} ke pernikahan kami`}
             </h2>
-            <h2 className="font-prata md:text-lg">Sabtu, 15 Oktober 2022</h2>
+            <h2 className="content font-prata md:text-lg">
+              Sabtu, 15 Oktober 2022
+            </h2>
           </div>
         </div>
       </div>

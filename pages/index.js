@@ -49,7 +49,24 @@ export default function Home({ listUcapan, guestName }) {
       <Head>
         <title>Annisa & Gema Wedding Invitation</title>
         <meta name="description" content="Annisa and Gema Wedding Invitation" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       {/* tambah disini conditional main yang isinya halaman pembuka untuk play music yang hanya muncul ketika pertama kali loading saja */}
@@ -61,7 +78,7 @@ export default function Home({ listUcapan, guestName }) {
 
       {!firstLoad && (
         <main className="scroll-smooth">
-          <Hero guestName={guestName} />
+          <Hero guestName={guestName} firstLoad={firstLoad} />
           <Identity />
           <Agenda />
           <Gift />
