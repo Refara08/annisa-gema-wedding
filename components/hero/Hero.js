@@ -76,6 +76,7 @@ const Hero = ({ guestName }) => {
             width={"390px"}
             height={"166px"}
             layout="responsive"
+            priority={true}
           />
         </div>
       </div>

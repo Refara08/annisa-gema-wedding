@@ -10,7 +10,8 @@ const defaultReminingTime = {
 
 const Countdown = () => {
   // jangan lupa jan - des = 0 - 11
-  const tanggalNikah = new Date(2022, 9, 15, 9);
+  // tahun, bulan, hari, jam
+  const tanggalNikah = new Date(2022, 9, 15, 10);
   const countDownTimeStampsMs = tanggalNikah.getTime();
 
   // countdown content

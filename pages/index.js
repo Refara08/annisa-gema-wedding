@@ -7,6 +7,7 @@ import Ucapan from "../components/congratulate/Ucapan";
 import axiosBase from "../utils/axiosBase";
 import { useState } from "react";
 import Footer from "../components/footer/Footer";
+import FirstLoad from "../components/first-load/FirstLoad";
 
 const sortByLatest = (arr) => {
   const compare = (a, b) => {
@@ -30,6 +31,7 @@ const sortByLatest = (arr) => {
 export default function Home({ listUcapan, guestName }) {
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   const updateList = async () => {
     setLoadingList(true);
@@ -38,9 +40,9 @@ export default function Home({ listUcapan, guestName }) {
     setLoadingList(false);
   };
 
-  // const updateLoadingListHandler = (boolean) => {
-  //   setLoadingList(boolean);
-  // };
+  const updateFirstLoadHandler = (bool) => {
+    setFirstLoad(bool);
+  };
 
   return (
     <>
@@ -50,18 +52,27 @@ export default function Home({ listUcapan, guestName }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="">
-        <Hero guestName={guestName} />
-        <Identity />
-        <Agenda />
-        <Gift />
-        <Ucapan
-          listUcapan={list}
-          updateList={updateList}
-          loadingList={loadingList}
-        />
-        <Footer />
-      </main>
+      {/* tambah disini conditional main yang isinya halaman pembuka untuk play music yang hanya muncul ketika pertama kali loading saja */}
+      {firstLoad && (
+        <main>
+          <FirstLoad update={updateFirstLoadHandler} />
+        </main>
+      )}
+
+      {!firstLoad && (
+        <main className="scroll-smooth">
+          <Hero guestName={guestName} />
+          <Identity />
+          <Agenda />
+          <Gift />
+          <Ucapan
+            listUcapan={list}
+            updateList={updateList}
+            loadingList={loadingList}
+          />
+          <Footer />
+        </main>
+      )}
     </>
   );
 }
