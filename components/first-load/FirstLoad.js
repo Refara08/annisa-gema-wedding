@@ -1,14 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 
 import EnvelopeIcon from "../icons/EnvelopeIcon";
+import { useRouter } from "next/router";
 
-const FirstLoad = ({ update }) => {
+const FirstLoad = () => {
+  const router = useRouter();
   const envelopeRef = useRef();
   const q = gsap.utils.selector(envelopeRef);
   const tl = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     tl.current = gsap
       .timeline()
       .fromTo(
@@ -23,6 +26,14 @@ const FirstLoad = ({ update }) => {
       );
   });
 
+  //url
+  let url;
+  if (router.pathname === "/") {
+    url = "/";
+  } else {
+    url = `/${router.query.guest}`;
+  }
+
   return (
     <section
       id="first-load"
@@ -36,14 +47,13 @@ const FirstLoad = ({ update }) => {
           <EnvelopeIcon size="6rem" />
           <div className="absolute top-0 -right-2 animate-ping w-[10px] h-[10px] rounded-full bg-red-600" />
         </div>
-        <div>
+        <div className="flex flex-col gap-4">
           <p className="content">anda menerima sebuah undangan, buka?</p>
-          <button
-            onClick={() => update(false)}
-            className="content bg-white-me text-dark-green py-1 px-5 rounded-xl mt-2 hover:shadow-inner"
-          >
-            buka
-          </button>
+          <Link href={url}>
+            <a className="content bg-white-me text-dark-green py-1 px-5 rounded-xl mt-2 hover:shadow-inner">
+              buka
+            </a>
+          </Link>
         </div>
       </div>
     </section>

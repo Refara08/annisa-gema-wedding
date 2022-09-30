@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 
@@ -8,13 +8,13 @@ const capitalizeFirstWord = (str) => {
   return strTransformed;
 };
 
-const Hero = ({ guestName, firstLoad }) => {
+const Hero = ({ guestName }) => {
   //animation
   const heroRef = useRef();
   const q = gsap.utils.selector(heroRef);
   const tl = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     tl.current = gsap
       .timeline()
       .fromTo(
@@ -45,7 +45,7 @@ const Hero = ({ guestName, firstLoad }) => {
         { yPercent: 0, opacity: 1, stagger: 0.6, duration: 1 },
         "<0.3"
       );
-  }, [firstLoad]);
+  }, []);
 
   //guess name configuration
   let guest;

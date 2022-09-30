@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Head from "next/head";
 import Agenda from "../components/agendas/Agendas";
 import Gift from "../components/gift/Gift";
@@ -5,9 +7,7 @@ import Hero from "../components/hero/Hero";
 import Identity from "../components/identity/Identity";
 import Ucapan from "../components/congratulate/Ucapan";
 import axiosBase from "../utils/axiosBase";
-import { useState } from "react";
 import Footer from "../components/footer/Footer";
-import FirstLoad from "../components/first-load/FirstLoad";
 
 const sortByLatest = (arr) => {
   const compare = (a, b) => {
@@ -31,17 +31,12 @@ const sortByLatest = (arr) => {
 export default function Home({ listUcapan, guestName }) {
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
-  const [firstLoad, setFirstLoad] = useState(true);
 
   const updateList = async () => {
     setLoadingList(true);
     const response = await axiosBase.get("/api/ucapan");
     setList(sortByLatest(response.data));
     setLoadingList(false);
-  };
-
-  const updateFirstLoadHandler = (bool) => {
-    setFirstLoad(bool);
   };
 
   return (
@@ -69,27 +64,18 @@ export default function Home({ listUcapan, guestName }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      {/* tambah disini conditional main yang isinya halaman pembuka untuk play music yang hanya muncul ketika pertama kali loading saja */}
-      {firstLoad && (
-        <main>
-          <FirstLoad update={updateFirstLoadHandler} />
-        </main>
-      )}
-
-      {!firstLoad && (
-        <main className="scroll-smooth">
-          <Hero guestName={guestName} firstLoad={firstLoad} />
-          <Identity />
-          <Agenda />
-          <Gift />
-          <Ucapan
-            listUcapan={list}
-            updateList={updateList}
-            loadingList={loadingList}
-          />
-          <Footer />
-        </main>
-      )}
+      <main>
+        <Hero guestName={guestName} />
+        <Identity />
+        <Agenda />
+        <Gift />
+        <Ucapan
+          listUcapan={list}
+          updateList={updateList}
+          loadingList={loadingList}
+        />
+        <Footer />
+      </main>
     </>
   );
 }
