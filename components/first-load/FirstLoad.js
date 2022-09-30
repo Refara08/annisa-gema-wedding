@@ -5,7 +5,7 @@ import gsap from "gsap";
 import EnvelopeIcon from "../icons/EnvelopeIcon";
 import { useRouter } from "next/router";
 
-const FirstLoad = () => {
+const FirstLoad = ({ updateFirstLoad }) => {
   const router = useRouter();
   const envelopeRef = useRef();
   const q = gsap.utils.selector(envelopeRef);
@@ -24,7 +24,7 @@ const FirstLoad = () => {
         { opacity: 0, yPercent: 50 },
         { opacity: 1, yPercent: 0, duration: 0.5, stagger: 0.5 }
       );
-  });
+  }, []);
 
   //url
   let url;
@@ -49,11 +49,17 @@ const FirstLoad = () => {
         </div>
         <div className="flex flex-col gap-4">
           <p className="content">anda menerima sebuah undangan, buka?</p>
-          <Link href={url}>
+          {/* <Link href={url}>
             <a className="content bg-white-me text-dark-green py-1 px-5 rounded-xl mt-2 hover:shadow-inner">
               buka
             </a>
-          </Link>
+          </Link> */}
+          <button
+            onClick={() => updateFirstLoad()}
+            className="content bg-white-me text-dark-green py-1 px-5 rounded-xl mt-2 hover:shadow-inner"
+          >
+            buka
+          </button>
         </div>
       </div>
     </section>

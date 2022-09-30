@@ -9,6 +9,8 @@ import Ucapan from "../components/congratulate/Ucapan";
 import axiosBase from "../utils/axiosBase";
 import Footer from "../components/footer/Footer";
 
+import FirstLoad from "../components/first-load/FirstLoad";
+
 const sortByLatest = (arr) => {
   const compare = (a, b) => {
     const timeA = new Date(a.createdAt).getTime();
@@ -29,6 +31,7 @@ const sortByLatest = (arr) => {
 };
 
 export default function Home({ listUcapan, guestName }) {
+  const [firstLoad, setFirstLoad] = useState(true);
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
 
@@ -37,6 +40,10 @@ export default function Home({ listUcapan, guestName }) {
     const response = await axiosBase.get("/api/ucapan");
     setList(sortByLatest(response.data));
     setLoadingList(false);
+  };
+
+  const updateFirstLoad = (bool) => {
+    setFirstLoad(bool);
   };
 
   return (
@@ -64,18 +71,26 @@ export default function Home({ listUcapan, guestName }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main>
-        <Hero guestName={guestName} />
-        <Identity />
-        <Agenda />
-        <Gift />
-        <Ucapan
-          listUcapan={list}
-          updateList={updateList}
-          loadingList={loadingList}
-        />
-        <Footer />
-      </main>
+      {firstLoad && (
+        <main>
+          <FirstLoad updateFirstLoad={updateFirstLoad} />
+        </main>
+      )}
+
+      {!firstLoad && (
+        <main>
+          <Hero guestName={guestName} />
+          <Identity />
+          <Agenda />
+          <Gift />
+          <Ucapan
+            listUcapan={list}
+            updateList={updateList}
+            loadingList={loadingList}
+          />
+          <Footer />
+        </main>
+      )}
     </>
   );
 }
