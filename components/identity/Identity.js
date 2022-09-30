@@ -27,7 +27,7 @@ const Identity = () => {
             once: true,
             start: "top bottom",
             end: "top 90%",
-            markers: true,
+            // markers: true,
           },
         }
       );
