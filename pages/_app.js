@@ -1,11 +1,34 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 
-import useWindowSize from "../hooks/useWIndowSize";
+// import useWindowSize from "../hooks/useWindowSize";
 import "../styles/globals.css";
+
+function getSize() {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+}
 
 function MyApp({ Component, pageProps }) {
   //Hook to grab window size
-  const size = useWindowSize();
+  const [size, setSize] = useState({
+    width: 414,
+    height: 896,
+  });
+
+  useLayoutEffect(() => {
+    function handleResize() {
+      setSize(getSize());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Ref for parent div and scrolling div
   const app = useRef();
