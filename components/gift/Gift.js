@@ -1,9 +1,42 @@
+import { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 import Rekening from "./Rekening";
 
 const Gift = () => {
+  //basic animation for pop-up text/elemnt
+  const popUpsRef = useRef();
+  const b = gsap.utils.selector(popUpsRef);
+
+  useLayoutEffect(() => {
+    b(".pop-up").forEach((item) => {
+      gsap.fromTo(
+        item,
+        { yPercent: 100, opacity: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 2,
+          // stagger: 0.2,
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: item,
+            scrub: 4,
+            once: true,
+            start: "top bottom",
+            end: "top 90%",
+            // markers: true,
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <section id="gift" className="relative">
+    <section ref={popUpsRef} id="gift" className="relative">
       <div className="md:absolute md:w-full md:bottom-0 md:right-0 md:-z-10">
         <div className="md:w-[40%]">
           <Image
@@ -18,8 +51,8 @@ const Gift = () => {
 
       <div className="custom-container py-24">
         <div className="text-center arab-quote mb-16">
-          <h2 className="heading-1">Hadiah & ucapan</h2>
-          <p className="arab-translate">
+          <h2 className="pop-up heading-1">Hadiah & ucapan</h2>
+          <p className="pop-up arab-translate">
             Doa dan restu anda merupakan karunia yang berarti bagi kami, jika
             memberi adalah ungkapan tanda kasih anda, anda dapat mengirimkannya
             melalui

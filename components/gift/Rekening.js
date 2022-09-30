@@ -22,7 +22,7 @@ const Rekening = ({ noRek, behalfOf, bank, width, height }) => {
 
   return (
     <div className="relative flex flex-col items-center gap-4">
-      <div className="w-[50%] md:w-[250px]">
+      <div className="pop-up w-[50%] md:w-[250px]">
         <Image
           src={`/images/gift/${bank}.png`}
           alt="bca icon"
@@ -31,7 +31,7 @@ const Rekening = ({ noRek, behalfOf, bank, width, height }) => {
           layout="responsive"
         />
       </div>
-      <div className="text-center flex items-center gap-4">
+      <div className="pop-up text-center flex items-center gap-4">
         <div>
           <h4 className="font-fira text-base lg:text-lg">
             {`No rekening: ${noRek}`}
