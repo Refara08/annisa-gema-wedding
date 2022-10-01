@@ -1,11 +1,19 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
-import Link from "next/link";
+import { useContext, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import AudioContext from "../../store/audio-context";
 
 import EnvelopeIcon from "../icons/EnvelopeIcon";
 import { useRouter } from "next/router";
 
 const FirstLoad = ({ updateFirstLoad }) => {
+  const AudioCtx = useContext(AudioContext);
+  const { updateIsPlaying } = AudioCtx;
+
+  const openInvitation = () => {
+    updateFirstLoad();
+    // updateIsPlaying(true);
+  };
+
   const router = useRouter();
   const envelopeRef = useRef();
   const q = gsap.utils.selector(envelopeRef);
@@ -55,7 +63,7 @@ const FirstLoad = ({ updateFirstLoad }) => {
             </a>
           </Link> */}
           <button
-            onClick={() => updateFirstLoad()}
+            onClick={openInvitation}
             className="content bg-white-me text-dark-green py-1 px-5 rounded-xl mt-2 hover:shadow-inner"
           >
             buka

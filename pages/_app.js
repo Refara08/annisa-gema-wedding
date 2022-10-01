@@ -13,6 +13,7 @@
 //experience -> good for desktop, bad for mobile device
 // import { useRef, useLayoutEffect, useState } from "react";
 import "../styles/globals.css";
+import { AudioContextProvider } from "../store/audio-context";
 
 // function getSize() {
 //   if (typeof window === "undefined") {
@@ -94,7 +95,9 @@ function MyApp({ Component, pageProps }) {
   // };
 
   return (
-    <Component {...pageProps} />
+    <AudioContextProvider>
+      <Component {...pageProps} />
+    </AudioContextProvider>
     // <div ref={app} className="App">
     //   <div ref={scrollContainer} className="scroll">
     //     <Component {...pageProps} />

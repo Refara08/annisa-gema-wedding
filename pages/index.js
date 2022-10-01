@@ -8,6 +8,7 @@ import Identity from "../components/identity/Identity";
 import Ucapan from "../components/congratulate/Ucapan";
 import axiosBase from "../utils/axiosBase";
 import Footer from "../components/footer/Footer";
+import Audio from "../components/audio/Audio";
 
 import FirstLoad from "../components/first-load/FirstLoad";
 
@@ -79,6 +80,7 @@ export default function Home({ listUcapan, guestName }) {
 
       {!firstLoad && (
         <main>
+          <Audio />
           <Hero guestName={guestName} />
           <Identity />
           <Agenda />
