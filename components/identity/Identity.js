@@ -97,12 +97,12 @@ const Identity = () => {
                 height="163px"
               />
             </div>
-            <div className="text-center hidden md:block xl:w-[350px]">
+            <div className="pop-up text-center hidden md:block xl:w-[350px]">
               <h2 className="font-dm-serif text-xl">
                 Annisa Dwiseptiana Raskania, S.Pd.
               </h2>
               <p className="font-fira text-sm">
-                Putri kedua dari pasangan Alm. Bpk. Rahmat Santoso dan Ibu
+                Putri kedua dari pasangan Bpk. Rahmat Santoso (Alm.) dan Ibu
                 Kurniasih
               </p>
             </div>
@@ -126,7 +126,7 @@ const Identity = () => {
                 height="163px"
               />
             </div>
-            <div className="text-center hidden md:block xl:w-[350px]">
+            <div className="pop-up text-center hidden md:block xl:w-[350px]">
               <h2 className="font-dm-serif text-xl">
                 Gema Refantero, S.Si., M.T.
               </h2>
@@ -147,12 +147,12 @@ const Identity = () => {
 
         {/* identitas gema nisa */}
         <div className="flex flex-col items-center justify-center text-center gap-4">
-          <div className="pop-up block md:hidden">
+          <div className="pop-up block md:hidden w-[90%]">
             <h2 className="font-dm-serif text-xl">
               Annisa Dwiseptiana Raskania, S.Pd.
             </h2>
             <p className="font-fira text-sm">
-              Putri kedua dari pasangan Alm. Bpk. Rahmat Santoso dan Ibu
+              Putri kedua dari pasangan Bpk. Rahmat Santoso (Alm.) dan Ibu
               Kurniasih
             </p>
           </div>
@@ -164,7 +164,7 @@ const Identity = () => {
               height="53px"
             />
           </div>
-          <div className="pop-up block md:hidden">
+          <div className="pop-up block md:hidden w-[90%]">
             <h2 className="font-dm-serif text-xl">
               Gema Refantero, S.Si., M.T.
             </h2>

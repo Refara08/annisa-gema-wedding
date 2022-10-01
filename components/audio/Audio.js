@@ -5,7 +5,7 @@ import AudioContext from "../../store/audio-context";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
 
-const Audio = ({ onGetMusic }) => {
+const Audio = ({ onGetMusic, firstLoad }) => {
   const audioPlayer = useRef();
   const AudioCtx = useContext(AudioContext);
   const { isPlaying } = AudioCtx;
@@ -24,7 +24,7 @@ const Audio = ({ onGetMusic }) => {
 
   useEffect(() => {
     onGetMusic(audioPlayer);
-    console.log("getting audio ref...");
+    // console.log("getting audio ref...");
   }, [audioPlayer.current]);
 
   // useEffect(() => {
@@ -44,14 +44,26 @@ const Audio = ({ onGetMusic }) => {
           <code>audio</code> element.
         </audio>
       </div>
-      <div>
+      <div className="text-dark-green">
         {!isPlaying && (
-          <button onClick={playAudio}>
+          <button
+            disabled={firstLoad}
+            className={` rounded-full  ${
+              !firstLoad && "bg-white-me shadow-xl"
+            }`}
+            onClick={playAudio}
+          >
             <PlayIcon size="3rem" />
           </button>
         )}
         {isPlaying && (
-          <button onClick={pauseAudio}>
+          <button
+            disabled={firstLoad}
+            className={` rounded-full  ${
+              !firstLoad && "bg-white-me shadow-xl"
+            }`}
+            onClick={pauseAudio}
+          >
             <PauseIcon size="3rem" />
           </button>
         )}

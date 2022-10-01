@@ -87,7 +87,7 @@ export default function Home({ listUcapan, guestName }) {
       </Head>
 
       <main>
-        <Audio onGetMusic={getMusic} />
+        <Audio onGetMusic={getMusic} firstLoad={firstLoad} />
         {firstLoad && (
           <FirstLoad
             updateFirstLoad={updateFirstLoad}

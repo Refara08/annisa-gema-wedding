@@ -56,7 +56,7 @@ const Hero = ({ guestName }) => {
   } else if (!!guestName && !guestName.includes("&")) {
     guest = capitalizeFirstWord(guestName) + " & pasangan";
   } else if (!guest) {
-    guest = "Anda";
+    guest = "Anda & pasangan";
   }
 
   return (
@@ -100,10 +100,10 @@ const Hero = ({ guestName }) => {
 
           {/* kalimat mengundang.. */}
           <div className="w-[75%] flex flex-col items-center gap-12">
-            <h2 className="content font-sacramento text-2xl md:text-4xl text-center">
+            <h2 className="content font-sacramento text-3xl md:text-4xl text-center">
               {`mengundang ${guest} ke pernikahan kami`}
             </h2>
-            <h2 className="content font-prata md:text-lg">
+            <h2 className="content font-prata text-lg md:text-xl">
               Sabtu, 15 Oktober 2022
             </h2>
           </div>

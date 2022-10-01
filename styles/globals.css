@@ -45,17 +45,17 @@ a {
 }
 
 .arab-text {
-  @apply font-dm-serif text-lg md:text-xl lg:text-2xl font-bold;
+  @apply font-dm-serif text-xl lg:text-2xl font-bold;
 }
 
 .arab-translate {
-  @apply font-sans text-xs md:text-sm lg:text-base leading-6;
+  @apply font-sans text-sm lg:text-base leading-6;
 }
 
 /* countdown section */
 
 .time-item {
-  @apply flex flex-col justify-evenly items-center;
+  @apply flex flex-col justify-evenly items-center text-center;
 }
 
 .num-time-item {
@@ -77,15 +77,15 @@ a {
 /* headings */
 
 .heading-1 {
-  @apply font-dm-serif text-xl lg:text-2xl tracking-wider;
+  @apply font-dm-serif text-2xl lg:text-3xl tracking-wider;
 }
 
 .heading-2 {
-  @apply font-dm-serif text-lg lg:text-xl;
+  @apply font-dm-serif text-xl lg:text-2xl;
 }
 
 .heading-3 {
-  @apply font-dm-serif text-base lg:text-lg;
+  @apply font-dm-serif text-lg lg:text-xl;
 }
 
 /* ucapan */
