@@ -5,22 +5,27 @@ import AudioContext from "../../store/audio-context";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
 
-const Audio = () => {
+const Audio = ({ onGetMusic }) => {
   const audioPlayer = useRef();
   const AudioCtx = useContext(AudioContext);
   const { isPlaying } = AudioCtx;
 
   const playAudio = () => {
     AudioCtx.updateIsPlaying(true);
-    audioPlayer.current.volume = 0.1;
+    audioPlayer.current.volume = 0.5;
     audioPlayer.current.play();
   };
 
   const pauseAudio = () => {
     AudioCtx.updateIsPlaying(false);
-    audioPlayer.current.volume = 0.1;
+    audioPlayer.current.volume = 0.5;
     audioPlayer.current.pause();
   };
+
+  useEffect(() => {
+    onGetMusic(audioPlayer);
+    console.log("getting audio ref...");
+  }, [audioPlayer.current]);
 
   // useEffect(() => {
   //   console.log(audioPlayer);

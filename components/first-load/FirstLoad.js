@@ -1,17 +1,13 @@
-import { useContext, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import AudioContext from "../../store/audio-context";
 
 import EnvelopeIcon from "../icons/EnvelopeIcon";
 import { useRouter } from "next/router";
 
-const FirstLoad = ({ updateFirstLoad }) => {
-  const AudioCtx = useContext(AudioContext);
-  const { updateIsPlaying } = AudioCtx;
-
+const FirstLoad = ({ updateFirstLoad, onPlayMusic }) => {
   const openInvitation = () => {
     updateFirstLoad();
-    // updateIsPlaying(true);
+    onPlayMusic();
   };
 
   const router = useRouter();

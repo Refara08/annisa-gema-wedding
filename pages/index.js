@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import AudioContext from "../store/audio-context";
 
 import Head from "next/head";
 import Agenda from "../components/agendas/Agendas";
@@ -35,6 +36,9 @@ export default function Home({ listUcapan, guestName }) {
   const [firstLoad, setFirstLoad] = useState(true);
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
+  const [obj, setObj] = useState({});
+
+  const AudioCtx = useContext(AudioContext);
 
   const updateList = async () => {
     setLoadingList(true);
@@ -45,6 +49,16 @@ export default function Home({ listUcapan, guestName }) {
 
   const updateFirstLoad = (bool) => {
     setFirstLoad(bool);
+  };
+
+  const getMusic = (obj) => {
+    setObj(obj);
+  };
+
+  const playMusic = () => {
+    AudioCtx.updateIsPlaying(true);
+    obj.current.volume = 0.5;
+    obj.current.play();
   };
 
   return (
@@ -72,27 +86,29 @@ export default function Home({ listUcapan, guestName }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      {firstLoad && (
-        <main>
-          <FirstLoad updateFirstLoad={updateFirstLoad} />
-        </main>
-      )}
-
-      {!firstLoad && (
-        <main>
-          <Audio />
-          <Hero guestName={guestName} />
-          <Identity />
-          <Agenda />
-          <Gift />
-          <Ucapan
-            listUcapan={list}
-            updateList={updateList}
-            loadingList={loadingList}
+      <main>
+        <Audio onGetMusic={getMusic} />
+        {firstLoad && (
+          <FirstLoad
+            updateFirstLoad={updateFirstLoad}
+            onPlayMusic={playMusic}
           />
-          <Footer />
-        </main>
-      )}
+        )}
+        {!firstLoad && (
+          <>
+            <Hero guestName={guestName} />
+            <Identity />
+            <Agenda />
+            <Gift />
+            <Ucapan
+              listUcapan={list}
+              updateList={updateList}
+              loadingList={loadingList}
+            />
+            <Footer />
+          </>
+        )}
+      </main>
     </>
   );
 }
