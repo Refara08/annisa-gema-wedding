@@ -53,9 +53,9 @@ const Gift = () => {
         <div className="text-center arab-quote mb-16">
           <h2 className="pop-up heading-1">Hadiah & ucapan</h2>
           <p className="pop-up arab-translate">
-            Doa dan restu anda merupakan karunia yang berarti bagi kami, jika
-            memberi adalah ungkapan tanda kasih anda, anda dapat mengirimkannya
-            melalui
+            Doa dan restu anda merupakan karunia yang berarti bagi kami, Jika
+            ada yang ingin memberikan amplop digital untuk pernikahan kami, kamu
+            menyediakan form Cashless di bawah ini
           </p>
         </div>
 

@@ -32,7 +32,7 @@ const sortByLatest = (arr) => {
   return sortedArr;
 };
 
-export default function Home({ listUcapan, guestName }) {
+export default function Home({ listUcapan, guestName, isInvited }) {
   const [firstLoad, setFirstLoad] = useState(true);
   const [list, setList] = useState(sortByLatest(listUcapan));
   const [loadingList, setLoadingList] = useState(false);
@@ -90,13 +90,15 @@ export default function Home({ listUcapan, guestName }) {
         <Audio onGetMusic={getMusic} firstLoad={firstLoad} />
         {firstLoad && (
           <FirstLoad
+            guestName={guestName}
+            isInvited={isInvited}
             updateFirstLoad={updateFirstLoad}
             onPlayMusic={playMusic}
           />
         )}
         {!firstLoad && (
           <>
-            <Hero guestName={guestName} />
+            <Hero guestName={guestName} isInvited={isInvited} />
             <Identity />
             <Agenda />
             <Gift />

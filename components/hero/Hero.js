@@ -8,7 +8,7 @@ const capitalizeFirstWord = (str) => {
   return strTransformed;
 };
 
-const Hero = ({ guestName }) => {
+const Hero = ({ guestName, isInvited }) => {
   //animation
   const heroRef = useRef();
   const q = gsap.utils.selector(heroRef);
@@ -65,6 +65,11 @@ const Hero = ({ guestName }) => {
         <div className="h-screen flex flex-col items-center justify-center gap-36 md:gap-28">
           {/* nama nisa gema dan ornamen */}
           <div className="relative ">
+            {!isInvited && (
+              <h2 className="content font-sacramento text-3xl md:text-4xl text-center mb-6">
+                {`The wedding of`}
+              </h2>
+            )}
             <div className="font-yaseva flex items-center gap-2 leading-8 md:leading-10 text-4xl md:text-5xl">
               <h1 className="flex flex-col items-end">
                 <span className="bride">Annisa</span>
@@ -100,9 +105,11 @@ const Hero = ({ guestName }) => {
 
           {/* kalimat mengundang.. */}
           <div className="w-[75%] flex flex-col items-center gap-12">
-            <h2 className="content font-sacramento text-3xl md:text-4xl text-center">
-              {`mengundang ${guest} ke pernikahan kami`}
-            </h2>
+            {isInvited && (
+              <h2 className="content font-sacramento text-3xl md:text-4xl text-center">
+                {`mengundang ${guest} ke pernikahan kami`}
+              </h2>
+            )}
             <h2 className="content font-prata text-lg md:text-xl">
               Sabtu, 15 Oktober 2022
             </h2>

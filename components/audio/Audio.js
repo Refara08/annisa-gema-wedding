@@ -53,7 +53,7 @@ const Audio = ({ onGetMusic, firstLoad }) => {
             }`}
             onClick={playAudio}
           >
-            <PlayIcon size="3rem" />
+            <PlayIcon size="2.4rem" />
           </button>
         )}
         {isPlaying && (
@@ -64,7 +64,7 @@ const Audio = ({ onGetMusic, firstLoad }) => {
             }`}
             onClick={pauseAudio}
           >
-            <PauseIcon size="3rem" />
+            <PauseIcon size="2.4rem" />
           </button>
         )}
       </div>
