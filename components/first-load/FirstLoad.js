@@ -85,7 +85,7 @@ const FirstLoad = ({ updateFirstLoad, onPlayMusic, guestName, isInvited }) => {
           {!isInvited && !!guestName && (
             <p className="content flex flex-col items-center text-center gap-2">
               <span>{`Kepada Bpk/Ibu/Saudara/i`}</span>
-              <span className="text-2xl font-fira">{`${guest}`}</span>
+              <span className="text-xl font-fira">{`${guest}`}</span>
             </p>
           )}
           {!isInvited && !guestName && (
