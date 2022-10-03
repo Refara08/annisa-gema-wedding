@@ -38,16 +38,21 @@ const FirstLoad = ({ updateFirstLoad, onPlayMusic, guestName, isInvited }) => {
       );
   }, []);
 
-  //url
   let guest;
   if (!!guestName && guestName.includes("&")) {
     const strArr = guestName.split("&");
     guest =
       capitalizeFirstWord(strArr[0]) + " & " + capitalizeFirstWord(strArr[1]);
-  } else if (!!guestName && !guestName.includes("&")) {
+  } else if (
+    !!guestName &&
+    !guestName.includes("&") &&
+    !guestName.includes("group=")
+  ) {
     guest = capitalizeFirstWord(guestName) + " & pasangan";
   } else if (!guestName) {
     guest = "Anda & pasangan";
+  } else if (guestName.includes("group=")) {
+    guest = capitalizeFirstWord(guestName.replace("group=", ""));
   }
 
   return (
